@@ -7,15 +7,7 @@
 
 import Foundation
 
-struct APIKey {
-    
-    static let BOXOFFICE = "f5eef3421c602c6cb7ea224104795888"
-    
-    static let NAVER_ID = "Le0T6RdwB7YZnztbsZwC"
-    
-    static let NAVER_SECRET = "e1t4dUIBrc"
-    
-}
+
 
 struct EndPoint {
     
