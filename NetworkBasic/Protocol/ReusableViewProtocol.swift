@@ -5,7 +5,6 @@
 //  Created by Junhee Yoon on 2022/08/01.
 //
 
-import Foundation
 import UIKit
 
 protocol ReusableViewProtocol {
@@ -24,6 +23,14 @@ extension UIViewController: ReusableViewProtocol {
 
 
 extension UITableViewCell: ReusableViewProtocol {
+   
+    static var reuseIdentifier: String {
+            return String(describing: self)
+    }
+    
+}
+
+extension UICollectionViewCell: ReusableViewProtocol {
    
     static var reuseIdentifier: String {
             return String(describing: self)

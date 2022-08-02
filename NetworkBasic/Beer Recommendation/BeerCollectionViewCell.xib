@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BeerCollectionViewCell" id="gTV-IL-0wX" customClass="BeerCollectionViewCell" customModule="NetworkBasic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="259" height="387"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="259" height="387"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DIJ-J6-J3j">
+                        <rect key="frame" x="52" y="47.5" width="155" height="207"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="DIJ-J6-J3j" secondAttribute="height" multiplier="3:4" id="cRG-Wc-GqC"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsB-dm-lN1">
+                        <rect key="frame" x="52" y="254.5" width="155" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="EEr-gZ-y9l"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Lx-59-9p2">
+                        <rect key="frame" x="52" y="286.5" width="155" height="77.5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="0Lx-59-9p2" secondAttribute="height" multiplier="2" id="p6r-zX-fId"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" systemColor="systemPinkColor"/>
+            <constraints>
+                <constraint firstItem="dsB-dm-lN1" firstAttribute="top" secondItem="DIJ-J6-J3j" secondAttribute="bottom" id="3Ko-gR-iFm"/>
+                <constraint firstItem="0Lx-59-9p2" firstAttribute="width" secondItem="DIJ-J6-J3j" secondAttribute="width" id="9SM-k4-SI4"/>
+                <constraint firstItem="dsB-dm-lN1" firstAttribute="leading" secondItem="DIJ-J6-J3j" secondAttribute="leading" id="Ax7-ng-fQz"/>
+                <constraint firstItem="0Lx-59-9p2" firstAttribute="top" secondItem="dsB-dm-lN1" secondAttribute="bottom" id="BWz-kY-KlQ"/>
+                <constraint firstItem="0Lx-59-9p2" firstAttribute="centerX" secondItem="DIJ-J6-J3j" secondAttribute="centerX" id="XIH-Dq-Tzq"/>
+                <constraint firstItem="DIJ-J6-J3j" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.6" id="cmZ-UR-RNH"/>
+                <constraint firstItem="dsB-dm-lN1" firstAttribute="trailing" secondItem="DIJ-J6-J3j" secondAttribute="trailing" id="hQx-Yf-Mf6"/>
+                <constraint firstItem="0Lx-59-9p2" firstAttribute="trailing" secondItem="DIJ-J6-J3j" secondAttribute="trailing" id="hxt-rB-v82"/>
+                <constraint firstItem="0Lx-59-9p2" firstAttribute="leading" secondItem="DIJ-J6-J3j" secondAttribute="leading" id="miu-pP-hdQ"/>
+                <constraint firstItem="DIJ-J6-J3j" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="pcl-O2-zCc"/>
+                <constraint firstItem="dsB-dm-lN1" firstAttribute="centerX" secondItem="DIJ-J6-J3j" secondAttribute="centerX" id="qoP-91-IEA"/>
+                <constraint firstItem="DIJ-J6-J3j" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" multiplier="0.7" id="s0K-8G-Aj2"/>
+            </constraints>
+            <size key="customSize" width="259" height="387"/>
+            <connections>
+                <outlet property="beerDescription" destination="0Lx-59-9p2" id="9rC-U3-nzT"/>
+                <outlet property="beerImageView" destination="DIJ-J6-J3j" id="TGq-8P-O3I"/>
+                <outlet property="beerName" destination="dsB-dm-lN1" id="kb6-j1-rL4"/>
+            </connections>
+            <point key="canvasLocation" x="-244.20289855072465" y="175.11160714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
