@@ -117,8 +117,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func calculatingDate() -> String {
         
         formatter.dateFormat = "yyyyMMdd"
-        let yesterday = formatter.string(from: today - 86400)
-        return yesterday
+//        let yesterday = formatter.string(from: today - 86400)
+        guard let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) else { return "" }
+        return formatter.string(from: yesterday)
         
     }
     

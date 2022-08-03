@@ -28,6 +28,7 @@ class BeerViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: BeerCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: BeerCollectionViewCell.reuseIdentifier)
+        configureCells()
     }
 
     
@@ -68,6 +69,8 @@ class BeerViewController: UIViewController {
                     
                 }
                 
+                self.collectionView.reloadData()
+                
                 print(self.totalBeers)
                 print(self.totalBeers[0].image)
                 print(self.totalBeers[0].beersName)
@@ -80,12 +83,27 @@ class BeerViewController: UIViewController {
         
     }
 
+    func configureCells() {
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 8
+        let width = UIScreen.main.bounds.width - (spacing * 3)
+        
+        layout.itemSize = CGSize(width: width / 2, height: (width / 2) * 1.4)
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        collectionView.collectionViewLayout = layout
+    }
+    
 }
 
 
-// MARK: - Extension: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 
-extension BeerViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+// MARK: - Extension: UICollectionViewDelegate, UICollectionViewDataSource
+
+extension BeerViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -99,29 +117,20 @@ extension BeerViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BeerCollectionViewCell.reuseIdentifier, for: indexPath) as? BeerCollectionViewCell else { return UICollectionViewCell() }
         
+        cell.backgroundColor = .clear
+        
         cell.beerImageView.kf.setImage(with: totalBeers[indexPath.row].image)
         cell.beerImageView.contentMode = .scaleAspectFit
         
         cell.beerName.text = totalBeers[indexPath.row].beersName
+        cell.beerName.textAlignment = .center
+        cell.beerName.font = .boldSystemFont(ofSize: 15)
         
         cell.beerDescription.text = totalBeers[indexPath.row].description
+        cell.beerDescription.font = .systemFont(ofSize: 13)
         
         return cell
+        
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let wsize = UIScreen.main.bounds.size.width
-                switch(wsize){
-                case 414:
-                    return CGSize(width: 190, height: 102)
-                case 375:
-                    return CGSize(width: 190, height: 102)
-                case 320:
-                    return CGSize(width: 174, height: 102)
-                default:
-                    return CGSize(width: 174, height: 102)
-                }
-    }
-
 
 }

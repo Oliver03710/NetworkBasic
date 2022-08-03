@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD1295D9289918F80090C3B4 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1295D8289918F80090C3B4 /* Date+Extension.swift */; };
+		AD6702F6289A09780049E2E8 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6702F5289A09780049E2E8 /* ImageSearchViewController.swift */; };
 		AD851C392897B1C6008AAA2E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD851C382897B1C6008AAA2E /* UILabel+Extension.swift */; };
 		AD851C3B2897B311008AAA2E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD851C3A2897B311008AAA2E /* UIView+Extension.swift */; };
 		AD851C3D2897BAEF008AAA2E /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD851C3C2897BAEF008AAA2E /* BeerViewController.swift */; };
@@ -32,6 +33,10 @@
 		ADD7B5092890E1FF003558C8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7B5082890E1FF003558C8 /* SearchViewController.swift */; };
 		ADD7B50C2890E4CE003558C8 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7B50A2890E4CE003558C8 /* ListTableViewCell.swift */; };
 		ADD7B50D2890E4CE003558C8 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD7B50B2890E4CE003558C8 /* ListTableViewCell.xib */; };
+		ADF0086D289A57B900849163 /* FetchImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF0086B289A57B900849163 /* FetchImageCollectionViewCell.swift */; };
+		ADF0086E289A57B900849163 /* FetchImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF0086C289A57B900849163 /* FetchImageCollectionViewCell.xib */; };
+		ADF00870289A57CE00849163 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ADF0086F289A57CE00849163 /* .gitignore */; };
+		ADF00872289A57ED00849163 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF00871289A57ED00849163 /* APIKey.swift */; };
 		ADF018A628920CCF0024F3F7 /* ViewPresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF018A528920CCF0024F3F7 /* ViewPresentableProtocol.swift */; };
 		ADF018A8289223730024F3F7 /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF018A7289223730024F3F7 /* LottoViewController.swift */; };
 		ADF018AA289230520024F3F7 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF018A9289230520024F3F7 /* TranslateViewController.swift */; };
@@ -43,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		AD1295D8289918F80090C3B4 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		AD6702F5289A09780049E2E8 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
 		AD851C382897B1C6008AAA2E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		AD851C3A2897B311008AAA2E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AD851C3C2897BAEF008AAA2E /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +72,10 @@
 		ADD7B5082890E1FF003558C8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		ADD7B50A2890E4CE003558C8 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		ADD7B50B2890E4CE003558C8 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		ADF0086B289A57B900849163 /* FetchImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADF0086C289A57B900849163 /* FetchImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetchImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		ADF0086F289A57CE00849163 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		ADF00871289A57ED00849163 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		ADF018A528920CCF0024F3F7 /* ViewPresentableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentableProtocol.swift; sourceTree = "<group>"; };
 		ADF018A7289223730024F3F7 /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
 		ADF018A9289230520024F3F7 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +136,7 @@
 			children = (
 				ADCFADEC289757960025DD40 /* Constant.swift */,
 				ADCFADEE28975FB00025DD40 /* UserDefaultsHelper.swift */,
+				ADF00871289A57ED00849163 /* APIKey.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -133,6 +144,7 @@
 		ADD7B4E82890DD7E003558C8 = {
 			isa = PBXGroup;
 			children = (
+				ADF0086F289A57CE00849163 /* .gitignore */,
 				ADD7B4F32890DD7E003558C8 /* NetworkBasic */,
 				ADD7B4F22890DD7E003558C8 /* Products */,
 			);
@@ -157,6 +169,7 @@
 				ADCFADEB289757830025DD40 /* Constant */,
 				ADF018A428920CA10024F3F7 /* Protocol */,
 				ADF098A52899629600EF708E /* Beer Recommendation */,
+				ADF0086A289A578100849163 /* FetchImage */,
 				ADA8AED028935D3F00C4B875 /* LocationViewController.swift */,
 				ADF018A7289223730024F3F7 /* LottoViewController.swift */,
 				ADF018A9289230520024F3F7 /* TranslateViewController.swift */,
@@ -168,6 +181,16 @@
 				ADD7B5022890DD7F003558C8 /* Info.plist */,
 			);
 			path = NetworkBasic;
+			sourceTree = "<group>";
+		};
+		ADF0086A289A578100849163 /* FetchImage */ = {
+			isa = PBXGroup;
+			children = (
+				AD6702F5289A09780049E2E8 /* ImageSearchViewController.swift */,
+				ADF0086B289A57B900849163 /* FetchImageCollectionViewCell.swift */,
+				ADF0086C289A57B900849163 /* FetchImageCollectionViewCell.xib */,
+			);
+			path = FetchImage;
 			sourceTree = "<group>";
 		};
 		ADF018A428920CA10024F3F7 /* Protocol */ = {
@@ -262,6 +285,8 @@
 				ADA8AEDA289384DB00C4B875 /* Happiness-Sans-Bold.otf in Resources */,
 				ADA8AED7289384DB00C4B875 /* Happiness-Sans-Title.otf in Resources */,
 				ADD7B50D2890E4CE003558C8 /* ListTableViewCell.xib in Resources */,
+				ADF00870289A57CE00849163 /* .gitignore in Resources */,
+				ADF0086E289A57B900849163 /* FetchImageCollectionViewCell.xib in Resources */,
 				ADF098A9289962C500EF708E /* BeerCollectionViewCell.xib in Resources */,
 				ADA8AED8289384DB00C4B875 /* HappinessSansVF.ttf in Resources */,
 				ADD7B4FE2890DD7F003558C8 /* Assets.xcassets in Resources */,
@@ -279,6 +304,7 @@
 			files = (
 				AD851C3D2897BAEF008AAA2E /* BeerViewController.swift in Sources */,
 				ADD7B4F92890DD7E003558C8 /* ViewController.swift in Sources */,
+				ADF00872289A57ED00849163 /* APIKey.swift in Sources */,
 				ADCFADEF28975FB00025DD40 /* UserDefaultsHelper.swift in Sources */,
 				ADF018AC28923AA10024F3F7 /* WebViewController.swift in Sources */,
 				AD851C3B2897B311008AAA2E /* UIView+Extension.swift in Sources */,
@@ -294,6 +320,8 @@
 				AD851C392897B1C6008AAA2E /* UILabel+Extension.swift in Sources */,
 				ADA623002898BD3400E2CA8B /* BoxOfficeModel.swift in Sources */,
 				ADCFADEA289752830025DD40 /* ReusableViewProtocol.swift in Sources */,
+				ADF0086D289A57B900849163 /* FetchImageCollectionViewCell.swift in Sources */,
+				AD6702F6289A09780049E2E8 /* ImageSearchViewController.swift in Sources */,
 				ADD7B50C2890E4CE003558C8 /* ListTableViewCell.swift in Sources */,
 				ADCFADED289757960025DD40 /* Constant.swift in Sources */,
 				AD1295D9289918F80090C3B4 /* Date+Extension.swift in Sources */,
