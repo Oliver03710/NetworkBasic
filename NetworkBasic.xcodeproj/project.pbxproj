@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AD1295D9289918F80090C3B4 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1295D8289918F80090C3B4 /* Date+Extension.swift */; };
+		AD22CF02289B506500A41881 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AD22CF01289B506500A41881 /* JGProgressHUD */; };
 		AD6702F6289A09780049E2E8 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6702F5289A09780049E2E8 /* ImageSearchViewController.swift */; };
 		AD851C392897B1C6008AAA2E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD851C382897B1C6008AAA2E /* UILabel+Extension.swift */; };
 		AD851C3B2897B311008AAA2E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD851C3A2897B311008AAA2E /* UIView+Extension.swift */; };
 		AD851C3D2897BAEF008AAA2E /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD851C3C2897BAEF008AAA2E /* BeerViewController.swift */; };
 		AD851C432897C856008AAA2E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AD851C422897C856008AAA2E /* Kingfisher */; };
+		ADA2A370289CB3F600E54309 /* ImageSearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA2A36F289CB3F600E54309 /* ImageSearchAPIManager.swift */; };
 		ADA623002898BD3400E2CA8B /* BoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA622FF2898BD3400E2CA8B /* BoxOfficeModel.swift */; };
 		ADA8AED128935D3F00C4B875 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8AED028935D3F00C4B875 /* LocationViewController.swift */; };
 		ADA8AED7289384DB00C4B875 /* Happiness-Sans-Title.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADA8AED3289384DB00C4B875 /* Happiness-Sans-Title.otf */; };
@@ -52,6 +54,7 @@
 		AD851C382897B1C6008AAA2E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		AD851C3A2897B311008AAA2E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AD851C3C2897BAEF008AAA2E /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
+		ADA2A36F289CB3F600E54309 /* ImageSearchAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchAPIManager.swift; sourceTree = "<group>"; };
 		ADA622FF2898BD3400E2CA8B /* BoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeModel.swift; sourceTree = "<group>"; };
 		ADA8AED028935D3F00C4B875 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		ADA8AED3289384DB00C4B875 /* Happiness-Sans-Title.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Happiness-Sans-Title.otf"; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD22CF02289B506500A41881 /* JGProgressHUD in Frameworks */,
 				AD851C432897C856008AAA2E /* Kingfisher in Frameworks */,
 				ADCFADF528977D000025DD40 /* SwiftyJSON in Frameworks */,
 				ADCFADF228977CE70025DD40 /* Alamofire in Frameworks */,
@@ -118,6 +122,14 @@
 				AD1295D8289918F80090C3B4 /* Date+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADA2A36E289CB3D100E54309 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				ADA2A36F289CB3F600E54309 /* ImageSearchAPIManager.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		ADA8AED2289384C500C4B875 /* Resource */ = {
@@ -166,6 +178,7 @@
 				ADD7B4F62890DD7E003558C8 /* SceneDelegate.swift */,
 				ADD7B4FA2890DD7E003558C8 /* Main.storyboard */,
 				AD851C352897B182008AAA2E /* Extensions */,
+				ADA2A36E289CB3D100E54309 /* APIManager */,
 				ADCFADEB289757830025DD40 /* Constant */,
 				ADF018A428920CA10024F3F7 /* Protocol */,
 				ADF098A52899629600EF708E /* Beer Recommendation */,
@@ -233,6 +246,7 @@
 				ADCFADF128977CE70025DD40 /* Alamofire */,
 				ADCFADF428977D000025DD40 /* SwiftyJSON */,
 				AD851C422897C856008AAA2E /* Kingfisher */,
+				AD22CF01289B506500A41881 /* JGProgressHUD */,
 			);
 			productName = NetworkBasic;
 			productReference = ADD7B4F12890DD7E003558C8 /* NetworkBasic.app */;
@@ -266,6 +280,7 @@
 				ADCFADF028977CE70025DD40 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				ADCFADF328977CFF0025DD40 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				AD851C412897C856008AAA2E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				AD22CF00289B506500A41881 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = ADD7B4F22890DD7E003558C8 /* Products */;
 			projectDirPath = "";
@@ -306,6 +321,7 @@
 				ADD7B4F92890DD7E003558C8 /* ViewController.swift in Sources */,
 				ADF00872289A57ED00849163 /* APIKey.swift in Sources */,
 				ADCFADEF28975FB00025DD40 /* UserDefaultsHelper.swift in Sources */,
+				ADA2A370289CB3F600E54309 /* ImageSearchAPIManager.swift in Sources */,
 				ADF018AC28923AA10024F3F7 /* WebViewController.swift in Sources */,
 				AD851C3B2897B311008AAA2E /* UIView+Extension.swift in Sources */,
 				ADF098A8289962C500EF708E /* BeerCollectionViewCell.swift in Sources */,
@@ -548,6 +564,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AD22CF00289B506500A41881 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		AD851C412897C856008AAA2E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -575,6 +599,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AD22CF01289B506500A41881 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD22CF00289B506500A41881 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
 		AD851C422897C856008AAA2E /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AD851C412897C856008AAA2E /* XCRemoteSwiftPackageReference "Kingfisher" */;

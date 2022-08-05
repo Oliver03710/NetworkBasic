@@ -8,6 +8,7 @@
 import UIKit
 
 import Alamofire
+import JGProgressHUD
 import SwiftyJSON
 
 /*
@@ -43,6 +44,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // BoxOffice 배열
     var list: [BoxOfficeModel] = []
+    let hud = JGProgressHUD()
     
     let today = Date()
     let formatter = DateFormatter()
@@ -71,11 +73,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func requestBoxOffice(text: String) {
         
+        hud.show(in: self.view)
         list.removeAll()
 
         let url = "\(EndPoint.boxOfficeURL)key=\(APIKey.BOXOFFICE)&targetDt=\(text)"
         
-        AF.request(url, method: .get).validate().responseJSON { response in
+        AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -96,8 +99,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 // 테이블뷰 갱신
                 self.searchTableView.reloadData()
+                self.hud.dismiss(animated: true)
                 
             case .failure(let error):
+                self.hud.dismiss(animated: true)
                 print(error)
             }
         }

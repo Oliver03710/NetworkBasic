@@ -15,7 +15,7 @@ class FetchImageCollectionViewCell: UICollectionViewCell {
         
         searchImageVIew.clipsToBounds = true
         searchImageVIew.layer.cornerRadius = 12
-        searchImageVIew.contentMode = .scaleAspectFit
+        searchImageVIew.contentMode = .scaleAspectFill
         
     }
     
