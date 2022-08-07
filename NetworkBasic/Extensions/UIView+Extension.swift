@@ -13,7 +13,6 @@ extension UIView {
         
         self.clipsToBounds = true
         self.layer.cornerRadius = self.layer.bounds.height / 2
-        self.backgroundColor = .systemYellow
         
     }
     
