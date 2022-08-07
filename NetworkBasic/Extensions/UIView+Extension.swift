@@ -12,7 +12,7 @@ extension UIView {
     func makeCircle() {
         
         self.clipsToBounds = true
-        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.cornerRadius = self.layer.bounds.height / 2
         self.backgroundColor = .systemYellow
         
     }

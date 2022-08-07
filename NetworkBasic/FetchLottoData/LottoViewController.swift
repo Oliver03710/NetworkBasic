@@ -17,14 +17,14 @@ class LottoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet var ballView: [UIView]!
     @IBOutlet var numberLabels: [UILabel]!
-    @IBOutlet weak var bonusNumLabel: UILabel!
     
 //    @IBOutlet weak var lottoPickerView: UIPickerView!
     
-    var lottoPickerView = UIPickerView()
     // 코드로 뷰를 만드는 기능이 훨씬 더 많이 남아있음!
+    var lottoPickerView = UIPickerView()
     
     var numberList: [Int] = Array(1...LottoCal.currentDraw()).reversed()
+    
     
     // MARK: - Init
     
@@ -38,7 +38,6 @@ class LottoViewController: UIViewController, UITextFieldDelegate {
         lottoPickerView.delegate = self
         lottoPickerView.dataSource = self
         
-        requestLotto(number: numberList.count)
         configureUI()
     }
     
@@ -46,16 +45,25 @@ class LottoViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Helper Functions
     
     func configureUI() {
+        numberLabels.forEach { $0.setLabels() }
+        ballView.forEach { $0.makeCircle() }
+    }
+    
+    
+    func checkLottoInfo(drawNum: Int) {
         
-        for i in numberLabels {
-            i.setLabels()
+        if UserdefaultsHelper.standard.drawNums[drawNum] != nil {
+            guard let winningNum = UserdefaultsHelper.standard.drawNums[drawNum] else { return }
+            
+            for i in 0..<winningNum.count {
+                numberLabels[i].text = winningNum[i]
+            }
+            
+        } else {
+            requestLotto(number: drawNum)
         }
         
-        bonusNumLabel.setLabels()
         
-        for i in ballView {
-            i.makeCircle()
-        }
     }
     
     
@@ -66,37 +74,16 @@ class LottoViewController: UIViewController, UITextFieldDelegate {
         return super.canPerformAction(action, withSender: sender)
     }
     
+    
+    // MARK: - Networking
+    
     func requestLotto(number: Int) {
-
-        let url = "\(EndPoint.lottoURL)&drwNo=\(number)"
         
-        //AF: 200~299 status code - Success
-        AF.request(url, method: .get).validate(statusCode: 200..<400).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                let bonus =  json["bnusNo"].stringValue
-                self.bonusNumLabel.text = bonus
-                print(bonus)
-                
-                let date = json["drwNoDate"].stringValue
-                print(date)
-                
-                var drawNum = [String]()
-                
-                for i in 1...6 {
-                    drawNum.append(json["drwtNo\(i)"].stringValue)
-                    self.numberLabels[i - 1].text = drawNum[i - 1]
-                }
-                print(drawNum)
-                
-                self.numberTextField.text = date
-                
-            case .failure(let error):
-                print(error)
-            }
+        LottoAPIManager.shared.fetcLottoData(drawNum: number) { drawNumber, winningNums in
+            
+            UserdefaultsHelper.standard.drawNums.updateValue(winningNums, forKey: drawNumber)
+            print("네트워킹")
+            
         }
         
     }
@@ -125,7 +112,7 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        requestLotto(number: numberList[row])
+        checkLottoInfo(drawNum: numberList[row])
     }
     
     

@@ -46,6 +46,9 @@
 		ADF098A8289962C500EF708E /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF098A6289962C500EF708E /* BeerCollectionViewCell.swift */; };
 		ADF098A9289962C500EF708E /* BeerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF098A7289962C500EF708E /* BeerCollectionViewCell.xib */; };
 		ADF098AB28996E9C00EF708E /* BeerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF098AA28996E9C00EF708E /* BeerModel.swift */; };
+		ADF71041289F92FA00E8D7B6 /* LottoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF71040289F92FA00E8D7B6 /* LottoAPIManager.swift */; };
+		ADF71043289F94E600E8D7B6 /* LottoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF71042289F94E600E8D7B6 /* LottoData.swift */; };
+		ADF71045289FB54400E8D7B6 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF71044289FB54400E8D7B6 /* UserDefaults+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +89,9 @@
 		ADF098A6289962C500EF708E /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADF098A7289962C500EF708E /* BeerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerCollectionViewCell.xib; sourceTree = "<group>"; };
 		ADF098AA28996E9C00EF708E /* BeerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerModel.swift; sourceTree = "<group>"; };
+		ADF71040289F92FA00E8D7B6 /* LottoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoAPIManager.swift; sourceTree = "<group>"; };
+		ADF71042289F94E600E8D7B6 /* LottoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoData.swift; sourceTree = "<group>"; };
+		ADF71044289FB54400E8D7B6 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 				AD851C382897B1C6008AAA2E /* UILabel+Extension.swift */,
 				AD851C3A2897B311008AAA2E /* UIView+Extension.swift */,
 				AD1295D8289918F80090C3B4 /* Date+Extension.swift */,
+				ADF71044289FB54400E8D7B6 /* UserDefaults+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,7 +191,7 @@
 				ADF098A52899629600EF708E /* Beer Recommendation */,
 				ADF0086A289A578100849163 /* FetchImage */,
 				ADA8AED028935D3F00C4B875 /* LocationViewController.swift */,
-				ADF018A7289223730024F3F7 /* LottoViewController.swift */,
+				ADF7103F289F921500E8D7B6 /* FetchLottoData */,
 				ADF018A9289230520024F3F7 /* TranslateViewController.swift */,
 				ADD7B4F82890DD7E003558C8 /* ViewController.swift */,
 				ADF018AB28923AA10024F3F7 /* WebViewController.swift */,
@@ -224,6 +231,16 @@
 				ADF098A7289962C500EF708E /* BeerCollectionViewCell.xib */,
 			);
 			path = "Beer Recommendation";
+			sourceTree = "<group>";
+		};
+		ADF7103F289F921500E8D7B6 /* FetchLottoData */ = {
+			isa = PBXGroup;
+			children = (
+				ADF71042289F94E600E8D7B6 /* LottoData.swift */,
+				ADF71040289F92FA00E8D7B6 /* LottoAPIManager.swift */,
+				ADF018A7289223730024F3F7 /* LottoViewController.swift */,
+			);
+			path = FetchLottoData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +348,7 @@
 				ADA8AED128935D3F00C4B875 /* LocationViewController.swift in Sources */,
 				ADD7B4F72890DD7E003558C8 /* SceneDelegate.swift in Sources */,
 				ADF018AA289230520024F3F7 /* TranslateViewController.swift in Sources */,
+				ADF71043289F94E600E8D7B6 /* LottoData.swift in Sources */,
 				ADF018A628920CCF0024F3F7 /* ViewPresentableProtocol.swift in Sources */,
 				ADF098AB28996E9C00EF708E /* BeerModel.swift in Sources */,
 				AD851C392897B1C6008AAA2E /* UILabel+Extension.swift in Sources */,
@@ -338,8 +356,10 @@
 				ADCFADEA289752830025DD40 /* ReusableViewProtocol.swift in Sources */,
 				ADF0086D289A57B900849163 /* FetchImageCollectionViewCell.swift in Sources */,
 				AD6702F6289A09780049E2E8 /* ImageSearchViewController.swift in Sources */,
+				ADF71041289F92FA00E8D7B6 /* LottoAPIManager.swift in Sources */,
 				ADD7B50C2890E4CE003558C8 /* ListTableViewCell.swift in Sources */,
 				ADCFADED289757960025DD40 /* Constant.swift in Sources */,
+				ADF71045289FB54400E8D7B6 /* UserDefaults+Extension.swift in Sources */,
 				AD1295D9289918F80090C3B4 /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

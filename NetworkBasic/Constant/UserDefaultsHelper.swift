@@ -17,7 +17,7 @@ class UserdefaultsHelper {
     let userDefaults = UserDefaults.standard
     
     enum Key: String {
-        case nickname, age, date
+        case nickname, age, date, drawNums, bonusNum
     }
     
     var nickname: String {
@@ -44,6 +44,24 @@ class UserdefaultsHelper {
         }
         set {
             userDefaults.set(newValue, forKey: Key.date.rawValue)
+        }
+    }
+    
+    var drawNums: [Int: [String]] {
+        get {
+            return userDefaults.object([Int: [String]].self, with: Key.drawNums.rawValue) ?? [:]
+        }
+        set {
+            userDefaults.set(object: newValue, forKey: Key.drawNums.rawValue)
+        }
+    }
+    
+    var bonusNum: String {
+        get {
+            return userDefaults.string(forKey: Key.bonusNum.rawValue) ?? ""
+        }
+        set {
+            userDefaults.set(newValue, forKey: Key.bonusNum.rawValue)
         }
     }
     
