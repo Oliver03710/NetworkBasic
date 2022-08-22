@@ -9,6 +9,7 @@ import UIKit
 
 import Alamofire
 import JGProgressHUD
+import RealmSwift
 import SwiftyJSON
 
 /*
@@ -39,15 +40,20 @@ import SwiftyJSON
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Properties
+    
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
     // BoxOffice 배열
+    
     var list: [BoxOfficeModel] = []
     let hud = JGProgressHUD()
     
     let today = Date()
     let formatter = DateFormatter()
+    let localRealm = try! Realm()
+    var tasks: Results<MovieArchive>!
     
     // MARK: - Init
     
@@ -63,9 +69,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchTableView.register(UINib(nibName: ListTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ListTableViewCell.reuseIdentifier)
         
         searchBar.delegate = self
-        requestBoxOffice(text: calculatingDate())
+        tasks = localRealm.objects(MovieArchive.self).sorted(byKeyPath: "raking", ascending: true)
+        if let arr = tasks {
+            if !arr[arr.count].inputDate.contains(calculatingDate()) {
+                requestBoxOffice(text: calculatingDate())
+            }
+        }
         
-
+        
     }
     
     
@@ -74,7 +85,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func requestBoxOffice(text: String) {
         
         hud.show(in: self.view)
-        list.removeAll()
 
         let url = "\(EndPoint.boxOfficeURL)key=\(APIKey.BOXOFFICE)&targetDt=\(text)"
         
@@ -82,20 +92,24 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
+//                print("JSON: \(json)")
+                print("Networking...")
                 
                 for movie in json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue {
                     
-                    let movieNm = movie["movieNm"].stringValue
+                    let movieTitle = movie["movieNm"].stringValue
+                    let rank = movie["rank"].stringValue
                     let openDt = movie["openDt"].stringValue
                     let audiAcc = movie["audiAcc"].stringValue
                     
-                    let data = BoxOfficeModel(movieTitle: movieNm, releaseDate: openDt, totalCount: audiAcc)
+                    let task = MovieArchive(movieTitle: movieTitle, raking: rank, releaseDate: openDt, totalAudience: audiAcc, inputDate: self.calculatingDate())
                     
-                    self.list.append(data)
+                    try! self.localRealm.write {
+                        self.localRealm.add(task)
+                        print("Realm Succeed")
+                    }
+                    
                 }
-                
-                print(self.list)
                 
                 // 테이블뷰 갱신
                 self.searchTableView.reloadData()
@@ -115,14 +129,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func configureView() {
         searchTableView.backgroundColor = .clear
         searchTableView.separatorColor = .clear
-        searchTableView.rowHeight = 60
+        searchTableView.rowHeight = 200
     }
     
     
     func calculatingDate() -> String {
         
         formatter.dateFormat = "yyyyMMdd"
-//        let yesterday = formatter.string(from: today - 86400)
         guard let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) else { return "" }
         return formatter.string(from: yesterday)
         
@@ -132,7 +145,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Table View Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -140,8 +153,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.reuseIdentifier, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         
         cell.backgroundColor = .clear
-        cell.titleLabel.font = .boldSystemFont(ofSize: 20)
-        cell.titleLabel.text = "\(list[indexPath.row].movieTitle): \(list[indexPath.row].releaseDate)"
+        cell.setUI()
+        cell.titleLabel.text = tasks[indexPath.row].movieTitle
+        cell.rankingLabel.text = tasks[indexPath.row].raking
+        cell.releaseDateLabel.text = tasks[indexPath.row].releaseDate
+        cell.totalAudienceLabel.text = tasks[indexPath.row].totalAudience
         
         return cell
     }
@@ -154,7 +170,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
-        requestBoxOffice(text: text)
+            requestBoxOffice(text: text)
     }
     
 }
