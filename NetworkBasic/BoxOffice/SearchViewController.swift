@@ -69,13 +69,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchTableView.register(UINib(nibName: ListTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ListTableViewCell.reuseIdentifier)
         
         searchBar.delegate = self
-        tasks = localRealm.objects(MovieArchive.self).sorted(byKeyPath: "raking", ascending: true)
-        if let arr = tasks {
-            if !arr[arr.count].inputDate.contains(calculatingDate()) {
-                requestBoxOffice(text: calculatingDate())
-            }
-        }
         
+        tasks = localRealm.objects(MovieArchive.self).sorted(byKeyPath: "raking", ascending: true)
+        
+        if tasks.isEmpty {
+            requestBoxOffice(text: calculatingDate())
+        } else if !tasks[tasks.count - 1].inputDate.contains(calculatingDate()) {
+            requestBoxOffice(text: calculatingDate())
+        }
         
     }
     
@@ -106,11 +107,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                     try! self.localRealm.write {
                         self.localRealm.add(task)
-                        print("Realm Succeed")
                     }
                     
                 }
                 
+                print("Realm Succeed")
                 // 테이블뷰 갱신
                 self.searchTableView.reloadData()
                 self.hud.dismiss(animated: true)
@@ -129,7 +130,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func configureView() {
         searchTableView.backgroundColor = .clear
         searchTableView.separatorColor = .clear
-        searchTableView.rowHeight = 200
     }
     
     
@@ -160,6 +160,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.totalAudienceLabel.text = tasks[indexPath.row].totalAudience
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 
